@@ -23,7 +23,7 @@ type (
 	}
 
 	AuthResponse struct {
-		User UserResponse   `json:"user"`
-		Auth AccessResponse `json:"auth"`
+		User *UserResponse   `json:"user"`
+		Auth *AccessResponse `json:"auth"`
 	}
 )
