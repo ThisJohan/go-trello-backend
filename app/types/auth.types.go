@@ -10,4 +10,20 @@ type (
 		LoginDTO
 		Name string `json:"name" validate:"required,min=3"`
 	}
+
+	UserResponse struct {
+		ID       uint   `json:"id"`
+		Name     string `json:"name"`
+		Email    string `json:"email"`
+		Password string `json:"-"`
+	}
+
+	AccessResponse struct {
+		Token string `json:"token"`
+	}
+
+	AuthResponse struct {
+		User UserResponse   `json:"user"`
+		Auth AccessResponse `json:"auth"`
+	}
 )

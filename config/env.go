@@ -8,8 +8,10 @@ import (
 )
 
 var (
-	PORT string
-	DB   string
+	PORT      string
+	DB        string
+	TOKEN_EXP string
+	TOKEN_KEY string
 )
 
 func LoadEnv() {
@@ -17,6 +19,8 @@ func LoadEnv() {
 
 	PORT = getEnv("PORT", "5000")
 	DB = getEnv("DB", "trello.db")
+	TOKEN_EXP = getEnv("TOKEN_EXP", "10h")
+	TOKEN_KEY = getEnv("TOKEN_KEY", "1234")
 }
 
 func getEnv(name string, fallback string) string {
