@@ -10,6 +10,7 @@ type User struct {
 	Name     string
 	Email    string `gorm:"uniqueIndex;not null"`
 	Password string `gorm:"not null"`
+	Boards   []Board
 }
 
 func CreateUser(user *User) *gorm.DB {
