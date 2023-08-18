@@ -42,6 +42,21 @@ func Login(ctx *fiber.Ctx) error {
 	return nil
 }
 
+func CheckUser(ctx *fiber.Ctx) error {
+
+	userId := utils.GetUser(ctx)
+
+	user := new(dal.User)
+
+	if err := dal.FindUser(user, "id = ?", userId).Error; err != nil {
+		return err
+	}
+
+	ctx.JSON(&types.UserResponse{ID: user.ID, Name: user.Name, Email: user.Email})
+
+	return nil
+}
+
 func Signup(ctx *fiber.Ctx) error {
 	body := new(types.SignupDTO)
 
