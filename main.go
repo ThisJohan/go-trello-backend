@@ -23,7 +23,7 @@ func main() {
 		return c.SendString("Hello, World!")
 	})
 
-	routes.AuthRoutes(r)
+	routes.SetupRoutes(r)
 
 	app.Listen(fmt.Sprintf(":%v", config.PORT))
 }
