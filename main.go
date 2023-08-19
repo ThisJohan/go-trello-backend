@@ -13,7 +13,7 @@ import (
 func main() {
 	config.LoadEnv()
 	database.Connect()
-	database.Migrate(dal.User{}, &dal.Board{})
+	database.Migrate(dal.User{}, &dal.Board{}, &dal.List{})
 
 	app := fiber.New()
 

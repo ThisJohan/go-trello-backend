@@ -10,7 +10,6 @@ type List struct {
 	Title       string `gorm:"not null"`
 	Description string
 	BoardId     uint `gorm:"foreignKey:board_id"`
-	Lists       []List
 }
 
 func CreateList(l *List) *gorm.DB {
