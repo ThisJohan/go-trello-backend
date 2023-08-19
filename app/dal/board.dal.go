@@ -10,6 +10,7 @@ type Board struct {
 	Title       string `gorm:"not null"`
 	Description string
 	UserID      uint `gorm:"foreignKey:user_id"`
+	Lists       []List
 }
 
 func CreateBoard(b *Board) *gorm.DB {

@@ -30,7 +30,9 @@ func GetLists(ctx *fiber.Ctx) error {
 
 	lists := new([]dal.List)
 
-	dal.FindListsByBoard(lists, boardId)
+	if err := dal.FindListsByBoard(lists, boardId).Error; err != nil {
+		return err
+	}
 
 	ctx.JSON(lists)
 

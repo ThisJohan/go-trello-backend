@@ -8,14 +8,17 @@ import (
 	"github.com/ThisJohan/go-trello-clone/config"
 	"github.com/ThisJohan/go-trello-clone/config/database"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func main() {
 	config.LoadEnv()
 	database.Connect()
-	database.Migrate(dal.User{}, &dal.Board{}, &dal.List{})
+	database.Migrate(dal.User{}, &dal.Board{}, &dal.List{}, &dal.Card{})
 
 	app := fiber.New()
+
+	app.Use(cors.New())
 
 	r := app.Group("/api")
 
